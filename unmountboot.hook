@@ -1,0 +1,15 @@
+[Trigger]
+Operation=Install
+Operation=Upgrade
+Operation=Remove
+Type=Package
+Target=nvidia*
+Target=linux*
+Target=systemd*
+Target=mkinitcpio
+Target=*-ucode
+
+[Action]
+Description=Unmounting /boot...
+When=PostTransaction
+Exec=/bin/umount /boot

@@ -1,0 +1,14 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = linux*
+Target = systemd*
+Target = mkinitcpio
+Target = *-ucode
+
+[Action]
+Description = Creating a snapshot before an important update...
+Exec = /bin/snapper create --description 'Snapshot before an important update' -c timeline
+When = PreTransaction
